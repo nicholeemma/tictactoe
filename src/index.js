@@ -60,11 +60,18 @@ class Board extends React.Component {
     // }
 
     // const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-
+    let squares = []
+    for (let i = 0; i < 3; i++) {
+      let low = [] 
+      for (let j = 0; j < 3; j++) {
+        low.push(this.renderSquare(i*3 + j))
+      }
+      squares.push(<div className="board-row">{low}</div>)
+    }
     return (
       <div>
-       
-        <div className="board-row">
+        {squares}
+        {/* <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
           {this.renderSquare(2)}
@@ -78,7 +85,7 @@ class Board extends React.Component {
           {this.renderSquare(6)}
           {this.renderSquare(7)}
           {this.renderSquare(8)}
-        </div>
+        </div> */}
       </div>
     );
   }
